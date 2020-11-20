@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
+from matplotlib import cm
+
 
 class capacitor_rectangle:
     def __init__(self,x_length,y_length,realism=False):
@@ -101,7 +103,7 @@ class capacitor_rectangle:
         print(str(iteration)+' iterations')
         return vector1
 
-    def plot3d(self,data=False):
+    def plot3d(self,data=False,save_image=False,dpi=300,name='3d_laplace_equation_capacitor.jpg'):
         if not data:
             data=self.result
         fig = plt.figure(figsize=(8,6))
@@ -117,12 +119,19 @@ class capacitor_rectangle:
         plot = ax.plot_surface(X=X, Y=Y, Z=data, cmap='YlGnBu_r', vmin=round(data.min()/10)*10, vmax=round(data.max()/10)*10)
         cbar = fig.colorbar(plot, ax=ax, shrink=0.6)
 
-    def plot2d(self,data=False):
+
+        if save_image:
+            plt.savefig(name,dpi=dpi)
+
+
+    def plot2d(self,data=False,save_image=False,dpi=300,name='2d_laplace_equation_capacitor.jpg'):
         if not data:
             data=self.result
         plt.imshow(data,cmap=plt.cm.Greys)
         plt.colorbar()
         plt.grid(True)
+        if save_image:
+            plt.savefig(name,dpi=dpi)
     
     def dataframe(self,name):
 
