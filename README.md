@@ -8,6 +8,14 @@ O presente código resolve a equaçãode laplace por meio da diferença finita. 
 
 ## Como funciona
 
+### Esssencial
+
+### Visualização
+
+### Salvar os dados 
+
+
+
 
 ## Referências
 
