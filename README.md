@@ -11,7 +11,8 @@ O presente código resolve a equaçãode laplace por meio da diferença finita. 
 ### Esssencial
 
 ### Visualização
-
+![iamge3d](https://github.com/estevanmendes/eletrostatica/blob/master/img/3d_laplace_equation_capacitor.jpg)
+![iamge2d](https://github.com/estevanmendes/eletrostatica/blob/master/img/2d_laplace_equation_capacitor.jpg)
 ### Salvar os dados 
 
 
