@@ -9,10 +9,11 @@ class capacitor_rectangle:
         self.y_length=int(y_length)
         self.realism=realism
         grid_increase=10
+        self.grid_increase=grid_increase
         if realism:
             self.SQUARE_GRID=np.zeros((x_length+x_length*grid_increase,y_length+y_length*grid_increase))
             #the grid is inside other larger grid because the Contour
-        else:
+        else:            
             self.SQUARE_GRID=np.zeros((x_length+2,y_length+2))
             #the grid is inside other larger grid because the Contour
         
@@ -23,9 +24,10 @@ class capacitor_rectangle:
         self.y_top=y_top
         if x_bottom.shape[0]!=self.x_length or x_top.shape[0]!=self.x_length:
             print('ERRO -- X contour size does not match')
+            
         if y_bottom.shape[0]!=self.y_length or y_top.shape[0]!=self.y_length:
             print('ERRO -- Y contour size does not match')
-    def run(self,rounds=False,precision=False):
+
         if self.realism:
             x_length=self.x_length
             y_length=self.y_length
@@ -41,6 +43,10 @@ class capacitor_rectangle:
             SQUARE_GRID[1:-1,-1]=self.x_top
             SQUARE_GRID[0,1:-1]=self.y_bottom
             SQUARE_GRID[-1,1:-1]=self.y_top
+        self.contour_nonzero=np.nonzero(SQUARE_GRID)
+
+    def run(self,rounds=False,precision=False):
+        SQUARE_GRID=np.array(self.SQUARE_GRID)
         if not precision:
             result=self.iterate_rounds(rounds,SQUARE_GRID)
             self.result=result
@@ -56,19 +62,20 @@ class capacitor_rectangle:
     def iterate_rounds(self,rounds,vector1):
         x_length=self.x_length
         y_length=self.y_length
-        realism_space_x=0
-        realism_space_y=0
 
         if self.realism:
-            realism_space_x=int(x_length*10/2)-2
-            realism_space_y=int(y_length*10/2)-2
-        for z in range(0,rounds):  
-            GRID=np.array(vector1)  
-            for k in range(x_length*y_length):
-                                
-                i=k%x_length+1+realism_space_x
-                j=int(k/x_length)+1+realism_space_y
+            x_length=x_length*self.grid_increase
+            y_length=y_length*self.grid_increase
+
+        for z in range(0,rounds):
+            GRID=np.array(vector1)
+            for k in range(x_length*y_length):                                
+                i=k%x_length+1
+                j=int(k/x_length)+1
+                
                 vector1[i,j]=0.25*(GRID[i+1,j]+GRID[i-1,j]+GRID[i,j-1]+GRID[i,j+1])
+            vector1[self.contour_nonzero]=self.SQUARE_GRID[self.contour_nonzero]
+
         
         return vector1
 
@@ -76,19 +83,19 @@ class capacitor_rectangle:
     def iterate_precision(self,precision,vector1):
         x_length=self.x_length
         y_length=self.y_length
-        realism_space_x=0
-        realism_space_y=0
+
         if self.realism:
-            realism_space_x=int(x_length*10/2)-2
-            realism_space_y=int(y_length*10/2)-2
+            x_length=x_length*self.grid_increase
+            y_length=y_length*self.grid_increase
 
         iteration=0
         while(iteration<5 or np.fabs(np.trace(vector1)-np.trace(GRID))>precision): 
             GRID=np.array(vector1)  
             for k in range(x_length*y_length):                
-                i=k%x_length+1+realism_space_x
-                j=int(k/x_length)+1+realism_space_y
+                i=k%x_length+1
+                j=int(k/x_length)+1
                 vector1[i,j]=0.25*(GRID[i+1,j]+GRID[i-1,j]+GRID[i,j-1]+GRID[i,j+1])
+            vector1[self.contour_nonzero]=self.SQUARE_GRID[self.contour_nonzero]
 
             iteration+=1
         print(str(iteration)+' iterations')
@@ -119,7 +126,7 @@ class capacitor_rectangle:
     
     def dataframe(self,name):
 
-        df=pd.DataFrame(data)
+        df=pd.DataFrame(self.result)
         df.to_csv(name+'.csv')
         return 'csv file saved'
 
