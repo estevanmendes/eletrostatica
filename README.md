@@ -6,6 +6,36 @@ Para a simulação de capacitores com diferentes geometrias, temos que resolver 
 É possível também resolver e observar o comportamento do potencial na presença de cargas.
 
 ## Guia rápido
+### Equação de poisson -- Potencial na presença de Cargas
+
+`from laplace_cartesian_v1 import *`
+
+```
+dim=10
+rounds=10
+potencial=poisson_equation(dim,dim,realism=True)
+potencial.charge_space(2,[0,9],[0,9],[1,-1])
+potencial.run(rounds=100)
+potencial.plot2d()
+potencial.plot3d()
+```
+
+### Equação de Laplace -- Capacitores
+`from laplace_cartesian_v1 import *`
+
+```
+dim=10
+rounds=10
+capacitor=poisson_equation(dim,dim,realism=False)
+cem=np.ones(dim)*100
+zero=np.zeros(dim)
+capacitor.contour_rectangle_capacitor(cem,-cem,zero,zero)
+resultado=capacitor.run(precision=10**-4)
+capacitor.plot2d(save_image=True)
+capacitor.plot3d()
+
+```
+
 
 ## Como funciona
 
