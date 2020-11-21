@@ -8,7 +8,7 @@ Para a simulação de capacitores com diferentes geometrias, temos que resolver 
 ## Guia rápido
 ### Equação de poisson -- Potencial na presença de Cargas
 
-`from laplace_cartesian_v1 import *`
+`from poisson_cartesian_v1 import *`
 
 ```
 dim=10
@@ -21,7 +21,7 @@ potencial.plot3d()
 ```
 
 ### Equação de Laplace -- Capacitores
-`from laplace_cartesian_v1 import *`
+`from poisson_cartesian_v1 import *`
 
 ```
 dim=10
