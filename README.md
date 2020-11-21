@@ -21,4 +21,4 @@ Para a simulação de capacitores com diferentes geometrias, temos que resolver 
 
 ## Referências
 
-* LANDAU
+* Landau, Rubin H., Manuel J. Pï, and Cristian C. Bordeianu. Computational physics: Problem solving with Python. John Wiley & Sons, 2015.
