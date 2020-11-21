@@ -37,7 +37,7 @@ capacitor.plot3d()
 ```
 
 Para um teste rápido do programa recomendamos utilizar os arquivos prontos prontos:[exemplo_1](https://github.com/estevanmendes/eletrostatica/blob/master/test_poisson_v1.ipynb) e [exemplo_2](https://github.com/estevanmendes/eletrostatica/blob/master/test_square_laplace_1.ipynb).
-]
+
 
 ## Como funciona
 
