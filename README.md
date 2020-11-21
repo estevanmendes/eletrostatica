@@ -59,8 +59,9 @@ Abaixo há exemplos de visualizações geradas pela simulação de uma capacitor
 ![iamge3d](https://github.com/estevanmendes/eletrostatica/blob/master/img/3d_laplace_equation_capacitor.jpg)
 
 ![iamge2d](https://github.com/estevanmendes/eletrostatica/blob/master/img/2d_laplace_equation_capacitor.jpg)
-### Salvar os dados 
 
+### Salvar os dados 
+Caso julgue interessante salvar os dados finais obtidos para o potencial elétrico, o método `dataframe(name='arquivo')` irá lhe retornar e salvar na pasta de trabalho um arquivo csv com o resultado final da simulação.
 
 
 
