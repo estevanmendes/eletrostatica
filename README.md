@@ -50,6 +50,9 @@ Em Seguida é necesssário passar as condições de contorno do problema. Há du
 
 2) utilizar o método `charge_space(numero_de_cargas,posições_eixo_x,posiçoes_eixo_y,valor_das_cargas)` para entrar com a densidade de carga presente no grid.
 
+Agora, para iniciar a simulação é necessáro o método `run(Rounds=100,precison=False)` onde escolhe-se ou o número de iterações que serão realizadas, ou a precisão desejada.
+O método retorna uma matriz com os valores do finaais obtidos para o potencial. É importante frisar que é recomendado utilizar precisão somente quando não for passado 'realism=True'
+
 ### Visualização
 
 Há dois métodos para a visualização dos resultados das simulações. Um reporta o resultada em uma gráfico 3d utilizando o método `plot3d(save_image=False,dpi=300,name='iamge.jpg')` , e outro expõe uma mapa de calor `plot2d(save_image=False,dpi=300,name='image.jpg')`, ou seja uma projeção 2d dos resultados
