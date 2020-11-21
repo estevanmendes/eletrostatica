@@ -45,7 +45,7 @@ Para um teste rápido do programa recomendamos utilizar os arquivos prontos pron
 
 'poisson_equation(X,Y,realism=True)'
 
-É preciso iniciar a utilização do código entrando com o tamnanho do grid de interesse. Passa-se o número de sítios ao longo eixo x e do eixo y. Caso escolha por uma simulação mais realísta o número de sítios no GRID aumenta 100 vezes, o número de sítios no eixo x e y são aumentados em 10 vezes
+É preciso iniciar a utilização do código entrando com o tamnanho do grid de interesse. Passa-se o número de sítios ao longo eixo x e do eixo y. Caso escolha por uma simulação mais realista o número de sítios no GRID aumenta 100 vezes, o número de sítios no eixo x e y são aumentados em 10 vezes
 
 Em Seguida é necesssário passar as condições de contorno do problema. Há duas possibilidades:
 1) utilizar o método `contour_rectangle_capacitor(x_chao,x_topo,y_chao,y_topo) ` que gera um contorno retangula de potencial ao grid. É necessário entrar com os valores na forma de um vetor (preferencialmente numpy) para cada sítio do contorno. Por exemplo, num o contorno no eixo x superior e inferior num grid 4X4 seria [1,1,1,1] e [0,0,0,0].
