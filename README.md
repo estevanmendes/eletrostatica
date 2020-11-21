@@ -41,8 +41,23 @@ capacitor.plot3d()
 
 ### Esssencial
 
+'poisson_equation(X,Y,realism=True)'
+
+É preciso iniciar a utilização do código entrando com o tamnanho do grid de interesse. Passa-se o número de sítios ao longo eixo x e do eixo y. Caso escolha por uma simulação mais realísta o número de sítios no GRID aumenta 100 vezes, o número de sítios no eixo x e y são aumentados em 10 vezes
+
+Em Seguida é necesssário passar as condições de contorno do problema. Há duas possibilidades:
+1) utilizar o método `contour_rectangle_capacitor(x_chao,x_topo,y_chao,y_topo) ` que gera um contorno retangula de potencial ao grid. É necessário entrar com os valores na forma de um vetor (preferencialmente numpy) para cada sítio do contorno. Por exemplo, num o contorno no eixo x superior e inferior num grid 4X4 seria [1,1,1,1] e [0,0,0,0].
+
+2) utilizar o método `charge_space(numero_de_cargas,posições_eixo_x,posiçoes_eixo_y,valor_das_cargas)` para entrar com a densidade de carga presente no grid.
+
 ### Visualização
+
+Há dois métodos para a visualização dos resultados das simulações. Um reporta o resultada em uma gráfico 3d utilizando o método `plot3d(save_image=False,dpi=300,name='iamge.jpg')` , e outro expõe uma mapa de calor `plot2d(save_image=False,dpi=300,name='image.jpg')`, ou seja uma projeção 2d dos resultados
+
+Abaixo há exemplos de visualizações geradas pela simulação de uma capacitor, uma das placas com voltagem de -100 e outro com voltagem de +100.
+
 ![iamge3d](https://github.com/estevanmendes/eletrostatica/blob/master/img/3d_laplace_equation_capacitor.jpg)
+
 ![iamge2d](https://github.com/estevanmendes/eletrostatica/blob/master/img/2d_laplace_equation_capacitor.jpg)
 ### Salvar os dados 
 
