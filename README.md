@@ -1,4 +1,4 @@
-# Simulação de Capacitores
+# Simulação de Capacitores e Potencial na Presença de Cargas
 
 ## Introdução
  O presente código soluciona numéricamente a [equação de poisson](https://en.wikipedia.org/wiki/Poisson%27s_equation), conhecida no âmbito da eletróstática. A solução da equação diferencial parcial é dada pelo [método da diferença finita](https://en.wikipedia.org/wiki/Finite_difference_method).
